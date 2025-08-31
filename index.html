@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TAS Business Solutions — Driving Growth with AI</title>
   <meta name="description" content="Helping small businesses leverage AI for smarter growth, efficiency, and innovation." />
-  <link rel="icon" href="logo.png" />
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
@@ -16,38 +15,83 @@
     body { font-family: 'Montserrat', sans-serif; }
     .brand-bg { background-color: #005477; }
     .brand-accent { color: #58FF75; }
+    
+    /* Logo styles */
+    .logo-container {
+      width: 48px;
+      height: 48px;
+      background: #ffffff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #005477;
+    }
+    
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: #005477;
+      border-radius: 50%;
+      position: relative;
+    }
+    
+    .logo-icon::before,
+    .logo-icon::after {
+      content: '';
+      position: absolute;
+      background: #ffffff;
+    }
+    
+    .logo-icon::before {
+      width: 16px;
+      height: 2px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .logo-icon::after {
+      width: 2px;
+      height: 16px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   </style>
 </head>
 <body class="antialiased text-slate-800 bg-gradient-to-br from-[#eef2ff] to-[#f0fdf4]">
 
   <!-- Header -->
   <header class="flex justify-between items-center p-6 brand-bg shadow-md">
-    <img src="logo.png" alt="TAS Business Solutions Logo" class="h-12">
+    <div class="logo-container">
+      <div class="logo-icon"></div>
+    </div>
     <nav class="text-white font-medium space-x-8">
-      <a href="index.html" class="hover:text-[#58FF75]">Home</a>
-      <a href="about.html" class="hover:text-[#58FF75]">About</a>
-      <a href="services.html" class="hover:text-[#58FF75]">Services</a>
-      <a href="contact.html" class="hover:text-[#58FF75]">Contact</a>
+      <a href="#home" class="hover:text-[#58FF75] cursor-pointer" onclick="scrollToSection('home')">Home</a>
+      <a href="#about" class="hover:text-[#58FF75] cursor-pointer" onclick="scrollToSection('about')">About</a>
+      <a href="#services" class="hover:text-[#58FF75] cursor-pointer" onclick="scrollToSection('services')">Services</a>
+      <a href="#contact" class="hover:text-[#58FF75] cursor-pointer" onclick="scrollToSection('contact')">Contact</a>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="text-center py-24 bg-[#5CB8FF] text-white">
+  <section id="home" class="text-center py-24 bg-[#5CB8FF] text-white">
     <h1 class="text-4xl md:text-5xl font-extrabold">Driving Growth, Innovation & Improving Outcomes</h1>
     <p class="mt-4 text-lg font-medium">Helping small businesses leverage AI for smarter growth and efficiency.</p>
-    <a href="contact.html" class="mt-8 inline-block bg-[#005477] text-white px-8 py-3 rounded-lg shadow hover:bg-[#003955]">
+    <a href="#contact" class="mt-8 inline-block bg-[#005477] text-white px-8 py-3 rounded-lg shadow hover:bg-[#003955] cursor-pointer" onclick="scrollToSection('contact')">
       Get in Touch
     </a>
   </section>
 
   <!-- About -->
-  <section class="max-w-5xl mx-auto px-6 py-16 text-center">
+  <section id="about" class="max-w-5xl mx-auto px-6 py-16 text-center">
     <h2 class="text-3xl font-extrabold text-[#005477]">About Us</h2>
     <p class="mt-4 text-slate-700 text-lg">At TAS Business Solutions, we empower small businesses to adopt AI tools and strategies that drive efficiency, scalability, and long-term success.</p>
   </section>
 
   <!-- Services -->
-  <section class="max-w-6xl mx-auto px-6 py-16">
+  <section id="services" class="max-w-6xl mx-auto px-6 py-16">
     <h2 class="text-3xl font-extrabold text-[#005477] text-center">Our Services</h2>
     <div class="mt-10 grid md:grid-cols-2 gap-8">
       <div class="p-6 bg-white shadow-lg rounded-lg">
@@ -72,10 +116,42 @@
   <!-- Why Choose Us -->
   <section class="bg-[#005477] text-white py-16 text-center">
     <h2 class="text-3xl font-extrabold">Why Choose Us?</h2>
-    <div class="grid md:grid-cols-3 gap-6 mt-8 max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-6 mt-8 max-w-5xl mx-auto px-6">
       <div class="p-6 bg-white text-[#005477] rounded-lg shadow-md">🚀 Fast Implementation</div>
       <div class="p-6 bg-white text-[#005477] rounded-lg shadow-md">🤝 Personalized Support</div>
       <div class="p-6 bg-white text-[#005477] rounded-lg shadow-md">💡 Future-Ready Strategy</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-4xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-extrabold text-[#005477] text-center mb-8">Contact Us</h2>
+    <div class="bg-white p-8 rounded-lg shadow-lg">
+      <form class="space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+            <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#005477]" required>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+            <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#005477]" required>
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Company</label>
+          <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#005477]">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+          <textarea rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#005477]" required></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="bg-[#005477] text-white px-8 py-3 rounded-lg shadow hover:bg-[#003955] font-medium">
+            Send Message
+          </button>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -85,7 +161,26 @@
   </footer>
 
   <script>
+    // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Smooth scrolling function
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+    
+    // Handle form submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
   </script>
 </body>
 </html>
