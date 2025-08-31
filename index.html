@@ -21,7 +21,8 @@
 
   <!-- Header -->
   <header class="flex justify-between items-center p-6 brand-bg shadow-md">
-    <img src="logo.png" alt="TAS Business Solutions Logo" class="h-12">
+    <img src="./logo.png" alt="TAS Business Solutions Logo" class="h-12" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+    <div style="display:none; color: white; font-bold text-lg;">TAS</div>
     <nav class="text-white font-medium space-x-8">
       <a href="#home" class="hover:text-[#58FF75] cursor-pointer" onclick="scrollToSection('home')">Home</a>
       <a href="#about" class="hover:text-[#58FF75] cursor-pointer" onclick="scrollToSection('about')">About</a>
@@ -72,9 +73,18 @@
   <section class="bg-[#005477] text-white py-16 text-center">
     <h2 class="text-3xl font-extrabold">Why Choose Us?</h2>
     <div class="grid md:grid-cols-3 gap-6 mt-8 max-w-5xl mx-auto px-6">
-      <div class="p-6 bg-white text-[#005477] rounded-lg shadow-md">🚀 Fast Implementation</div>
-      <div class="p-6 bg-white text-[#005477] rounded-lg shadow-md">🤝 Personalized Support</div>
-      <div class="p-6 bg-white text-[#005477] rounded-lg shadow-md">💡 Future-Ready Strategy</div>
+      <div class="p-6 bg-white text-[#005477] rounded-lg shadow-md">
+        <h3 class="font-semibold text-lg mb-2">Fast Implementation</h3>
+        <p class="text-sm">Quick deployment of AI solutions tailored to your business needs</p>
+      </div>
+      <div class="p-6 bg-white text-[#005477] rounded-lg shadow-md">
+        <h3 class="font-semibold text-lg mb-2">Personalized Support</h3>
+        <p class="text-sm">Dedicated guidance throughout your AI transformation journey</p>
+      </div>
+      <div class="p-6 bg-white text-[#005477] rounded-lg shadow-md">
+        <h3 class="font-semibold text-lg mb-2">Future-Ready Strategy</h3>
+        <p class="text-sm">Scalable solutions that grow with your business</p>
+      </div>
     </div>
   </section>
 
