@@ -15,58 +15,13 @@
     body { font-family: 'Montserrat', sans-serif; }
     .brand-bg { background-color: #005477; }
     .brand-accent { color: #58FF75; }
-    
-    /* Logo styles */
-    .logo-container {
-      width: 48px;
-      height: 48px;
-      background: #ffffff;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #005477;
-    }
-    
-    .logo-icon {
-      width: 32px;
-      height: 32px;
-      background: #005477;
-      border-radius: 50%;
-      position: relative;
-    }
-    
-    .logo-icon::before,
-    .logo-icon::after {
-      content: '';
-      position: absolute;
-      background: #ffffff;
-    }
-    
-    .logo-icon::before {
-      width: 16px;
-      height: 2px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    .logo-icon::after {
-      width: 2px;
-      height: 16px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
   </style>
 </head>
 <body class="antialiased text-slate-800 bg-gradient-to-br from-[#eef2ff] to-[#f0fdf4]">
 
   <!-- Header -->
   <header class="flex justify-between items-center p-6 brand-bg shadow-md">
-    <div class="logo-container">
-      <div class="logo-icon"></div>
-    </div>
+    <img src="logo.png" alt="TAS Business Solutions Logo" class="h-12">
     <nav class="text-white font-medium space-x-8">
       <a href="#home" class="hover:text-[#58FF75] cursor-pointer" onclick="scrollToSection('home')">Home</a>
       <a href="#about" class="hover:text-[#58FF75] cursor-pointer" onclick="scrollToSection('about')">About</a>
