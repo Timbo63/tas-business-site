@@ -5,23 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TAS Business Solutions — Driving Growth with AI</title>
   <meta name="description" content="Helping small businesses leverage AI for smarter growth, efficiency, and innovation." />
-  <meta property="og:title" content="TAS Business Solutions — Driving Growth with AI" />
-  <meta property="og:description" content="AI adoption, workflow automation, and smart strategies for business success." />
-  <meta property="og:type" content="website" />
   <link rel="icon" href="logo.png" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { background: linear-gradient(to bottom right, #f0fdf4, #eef2ff); font-family: 'Montserrat', sans-serif; }
-    .cta { background: #005477; color: #fff; border-radius: 8px; padding: 12px 24px; display: inline-block; }
-    .cta:hover { background: #003955; }
+    body { font-family: 'Montserrat', sans-serif; }
+    .brand-bg { background-color: #005477; }
+    .brand-accent { color: #58FF75; }
   </style>
 </head>
-<body class="antialiased text-slate-800">
+<body class="antialiased text-slate-800 bg-gradient-to-br from-[#eef2ff] to-[#f0fdf4]">
 
   <!-- Header -->
-  <header class="flex justify-between items-center p-6 bg-[#005477] shadow">
+  <header class="flex justify-between items-center p-6 brand-bg shadow-md">
     <img src="logo.png" alt="TAS Business Solutions Logo" class="h-12">
-    <nav class="text-white font-medium space-x-6">
+    <nav class="text-white font-medium space-x-8">
       <a href="index.html" class="hover:text-[#58FF75]">Home</a>
       <a href="about.html" class="hover:text-[#58FF75]">About</a>
       <a href="services.html" class="hover:text-[#58FF75]">Services</a>
@@ -30,42 +32,55 @@
   </header>
 
   <!-- Hero -->
-  <section class="text-center py-20">
-    <h1 class="text-4xl md:text-5xl font-bold text-[#005477]">TAS Business Solutions</h1>
-    <p class="mt-4 text-lg text-slate-600">Helping small businesses leverage AI for smarter growth and efficiency.</p>
-    <a href="contact.html" class="mt-6 inline-block cta">Get in Touch</a>
+  <section class="text-center py-24 bg-[#5CB8FF] text-white">
+    <h1 class="text-4xl md:text-5xl font-extrabold">Driving Growth, Innovation & Improving Outcomes</h1>
+    <p class="mt-4 text-lg font-medium">Helping small businesses leverage AI for smarter growth and efficiency.</p>
+    <a href="contact.html" class="mt-8 inline-block bg-[#005477] text-white px-8 py-3 rounded-lg shadow hover:bg-[#003955]">
+      Get in Touch
+    </a>
   </section>
 
-  <!-- About Us -->
-  <section class="max-w-4xl mx-auto px-6 py-12" id="about">
-    <h2 class="text-3xl font-semibold text-[#005477]">About Us</h2>
-    <p class="mt-4 text-slate-700">At TAS Business Solutions, we empower small businesses to adopt AI tools and strategies that drive efficiency, scalability, and long-term success.</p>
+  <!-- About -->
+  <section class="max-w-5xl mx-auto px-6 py-16 text-center">
+    <h2 class="text-3xl font-extrabold text-[#005477]">About Us</h2>
+    <p class="mt-4 text-slate-700 text-lg">At TAS Business Solutions, we empower small businesses to adopt AI tools and strategies that drive efficiency, scalability, and long-term success.</p>
   </section>
 
   <!-- Services -->
-  <section class="max-w-4xl mx-auto px-6 py-12" id="services">
-    <h2 class="text-3xl font-semibold text-[#005477]">Our Services</h2>
-    <ul class="mt-4 space-y-2 text-slate-700 list-disc list-inside">
-      <li>AI Adoption Strategy</li>
-      <li>Workflow Automation</li>
-      <li>Data Analysis & Insights</li>
-      <li>Custom AI Prototypes</li>
-    </ul>
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-extrabold text-[#005477] text-center">Our Services</h2>
+    <div class="mt-10 grid md:grid-cols-2 gap-8">
+      <div class="p-6 bg-white shadow-lg rounded-lg">
+        <h3 class="font-semibold text-xl text-[#003955]">AI Adoption Strategy</h3>
+        <p class="mt-2 text-slate-600">Tailored roadmaps to integrate AI into your business operations.</p>
+      </div>
+      <div class="p-6 bg-white shadow-lg rounded-lg">
+        <h3 class="font-semibold text-xl text-[#003955]">Workflow Automation</h3>
+        <p class="mt-2 text-slate-600">Streamlining processes with AI-powered automation.</p>
+      </div>
+      <div class="p-6 bg-white shadow-lg rounded-lg">
+        <h3 class="font-semibold text-xl text-[#003955]">Data Analysis & Insights</h3>
+        <p class="mt-2 text-slate-600">Turning raw data into actionable strategies.</p>
+      </div>
+      <div class="p-6 bg-white shadow-lg rounded-lg">
+        <h3 class="font-semibold text-xl text-[#003955]">Custom AI Prototypes</h3>
+        <p class="mt-2 text-slate-600">Building AI proof-of-concepts tailored to your business needs.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Why Choose Us -->
-  <section class="max-w-4xl mx-auto px-6 py-12">
-    <h2 class="text-3xl font-semibold text-[#005477]">Why Choose Us?</h2>
-    <p class="mt-4 text-slate-700">We combine business expertise with AI innovation to deliver solutions tailored to your growth.</p>
-    <div class="grid md:grid-cols-3 gap-6 mt-6 text-center">
-      <div class="p-4 rounded-xl bg-white shadow">🚀 Fast Implementation</div>
-      <div class="p-4 rounded-xl bg-white shadow">🤝 Personalized Support</div>
-      <div class="p-4 rounded-xl bg-white shadow">💡 Future-Ready Strategy</div>
+  <section class="bg-[#005477] text-white py-16 text-center">
+    <h2 class="text-3xl font-extrabold">Why Choose Us?</h2>
+    <div class="grid md:grid-cols-3 gap-6 mt-8 max-w-5xl mx-auto">
+      <div class="p-6 bg-white text-[#005477] rounded-lg shadow-md">🚀 Fast Implementation</div>
+      <div class="p-6 bg-white text-[#005477] rounded-lg shadow-md">🤝 Personalized Support</div>
+      <div class="p-6 bg-white text-[#005477] rounded-lg shadow-md">💡 Future-Ready Strategy</div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center py-6 bg-[#005477] text-white">
+  <footer class="text-center py-6 brand-bg text-white">
     <p>© <span id="year"></span> TAS Business Solutions LLC. All rights reserved.</p>
   </footer>
 
