@@ -3,24 +3,81 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TAS Business Solutions — AI-Powered Growth for Small Businesses</title>
-  <meta name="description" content="TAS Business Solutions helps small businesses adopt AI to improve efficiency, boost revenue, and unlock growth opportunities." />
+  <title>TAS Business Solutions — AI-Powered Growth</title>
+  <meta name="description" content="Helping small businesses adopt AI to improve efficiency, boost revenue, and unlock growth opportunities." />
   <link rel="icon" href="/favicon.ico" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { background: linear-gradient(to bottom right, #f0fdf4, #eef2ff); font-family: sans-serif; }
-    .hero { padding: 80px 20px; text-align: center; }
-    .hero h1 { font-size: 2.5rem; font-weight: bold; color: #1f2937; }
-    .hero p { font-size: 1.25rem; color: #4b5563; margin-top: 10px; }
-    .cta { margin-top: 20px; padding: 12px 24px; background: #2563eb; color: white; border-radius: 8px; display: inline-block; }
+    body { font-family: 'Helvetica Neue', sans-serif; background: #f9fafb; }
+    .section { padding: 60px 20px; max-width: 900px; margin: auto; }
+    .cta { background: #2563eb; color: white; padding: 12px 24px; border-radius: 8px; }
+    header img { height: 50px; }
   </style>
 </head>
 <body>
-  <section class="hero">
-    <h1>TAS Business Solutions</h1>
-    <p>Helping small businesses leverage AI for smarter growth and efficiency.</p>
-    <a href="mailto:info@tasbusinesssolutions.com" class="cta">Get in Touch</a>
+  <!-- Header -->
+  <header class="flex justify-between items-center p-6 bg-white shadow">
+    <img src="logo.png" alt="TAS Business Solutions Logo">
+    <nav>
+      <a href="#about" class="mr-4">About</a>
+      <a href="#services" class="mr-4">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="section text-center">
+    <h1 class="text-4xl font-bold">TAS Business Solutions</h1>
+    <p class="text-lg mt-4">Helping small businesses leverage AI for smarter growth and efficiency.</p>
+    <a href="#contact" class="cta mt-6 inline-block">Get in Touch</a>
   </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <h2 class="text-2xl font-bold mb-4">About Us</h2>
+    <p>At TAS Business Solutions, we empower small businesses to adopt AI tools and strategies that drive efficiency, scalability, and long-term success.</p>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section bg-gray-100 rounded-xl">
+    <h2 class="text-2xl font-bold mb-4">Our Services</h2>
+    <ul class="list-disc ml-6">
+      <li>AI Adoption Strategy</li>
+      <li>Workflow Automation</li>
+      <li>Data Analysis & Insights</li>
+      <li>Custom AI Prototypes</li>
+    </ul>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section id="why" class="section">
+    <h2 class="text-2xl font-bold mb-4">Why Choose Us?</h2>
+    <p>We combine business expertise with AI innovation to deliver solutions tailored to your growth.</p>
+    <div class="grid md:grid-cols-3 gap-6 mt-6">
+      <div class="p-4 bg-white shadow rounded">🚀 Fast Implementation</div>
+      <div class="p-4 bg-white shadow rounded">🤝 Personalized Support</div>
+      <div class="p-4 bg-white shadow rounded">💡 Future-Ready Strategy</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section bg-gray-100 rounded-xl">
+    <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+    <form action="https://formspree.io/f/yourFormIdHere" method="POST" class="space-y-4">
+      <input type="text" name="name" placeholder="Your Name" required class="w-full border p-2 rounded" />
+      <input type="email" name="email" placeholder="Your Email" required class="w-full border p-2 rounded" />
+      <textarea name="message" placeholder="Your Message" required class="w-full border p-2 rounded"></textarea>
+      <button type="submit" class="cta">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-6 bg-white shadow mt-10">
+    <p>© <span id="year"></span> TAS Business Solutions LLC. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
