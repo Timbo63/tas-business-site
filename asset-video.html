@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism Health AI Demo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap');
+        
+        .prism-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #5CB8FF 0%, #3A9AF9 100%);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .prism-heading {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: 'Montserrat ExtraBold', 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0, 84, 119, 0.3);
+        }
+        
+        .prism-description {
+            font-size: 1.2rem;
+            font-weight: 500;
+            font-family: 'Montserrat Medium', 'Montserrat', sans-serif;
+            color: #FFFFFF;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .video-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid #005477;
+            box-shadow: 0 20px 25px -5px rgba(0, 84, 119, 0.3), 0 10px 10px -5px rgba(0, 84, 119, 0.2);
+        }
+        
+        .video-player {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-card {
+            background: #FFFFFF;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 2px solid #005477;
+            box-shadow: 0 8px 15px rgba(0, 84, 119, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 84, 119, 0.2);
+        }
+        
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            font-family: 'Montserrat ExtraBold', 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: #005477;
+        }
+        
+        .feature-description {
+            color: #005477;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .cta-section {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #005477 0%, #0017EB 100%);
+            border-radius: 12px;
+            color: #FFFFFF;
+            border: 3px solid #58FF75;
+        }
+        
+        .cta-section h3 {
+            font-family: 'Montserrat ExtraBold', 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-family: 'Montserrat Medium', 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            background: #58FF75;
+            color: #005477;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+            font-family: 'Montserrat ExtraBold', 'Montserrat', sans-serif;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #58FF75;
+        }
+        
+        .cta-button:hover {
+            background: #89FF9D;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(88, 255, 117, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <section class="prism-section">
+        <h2 class="prism-heading">Prism Health AI MVP Demo</h2>
+        <p class="prism-description">
+            Watch our revolutionary AI-powered health screening platform in action. See how Prism Health AI delivers enterprise-level diagnostic capabilities at an affordable scale for small and mid-size healthcare providers.
+        </p>
+        
+        <div class="video-container">
+            <!-- Option 1: Direct video file hosting -->
+            <video class="video-player" controls poster="path/to/video-thumbnail.jpg">
+                <source src="path/to/prism-health-ai-demo.mp4" type="video/mp4">
+                <source src="path/to/prism-health-ai-demo.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+            
+            <!-- Option 2: YouTube embed (replace VIDEO_ID with actual ID) -->
+            <!--
+            <iframe 
+                width="100%" 
+                height="500" 
+                src="https://www.youtube.com/embed/VIDEO_ID" 
+                frameborder="0" 
+                allowfullscreen>
+            </iframe>
+            -->
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3 class="feature-title">AI-Powered Diagnostics</h3>
+                <p class="feature-description">
+                    Advanced machine learning algorithms provide accurate health screenings with enterprise-level precision at small business prices.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <h3 class="feature-title">Scalable Solution</h3>
+                <p class="feature-description">
+                    Built to grow with your practice, from small clinics to mid-size healthcare facilities, without costly migrations.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <h3 class="feature-title">Real ROI</h3>
+                <p class="feature-description">
+                    See return on investment in months, not years, with practical AI implementations that deliver immediate value.
+                </p>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h3>Ready to Transform Your Healthcare Practice?</h3>
+            <p>Contact us today to learn how Prism Health AI can revolutionize your diagnostic capabilities.</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+</body>
+</html>
