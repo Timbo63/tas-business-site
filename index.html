@@ -16,6 +16,53 @@
     .brand-bg { background-color: #005477; }
     .brand-accent { color: #58FF75; }
     
+    /* Dropdown styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 180px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 8px;
+      top: 100%;
+      margin-top: 8px;
+    }
+    
+    .dropdown-content a {
+      color: #005477;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: #f1f5f9;
+      color: #003955;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    /* Arrow for dropdown */
+    .dropdown-arrow {
+      display: inline-block;
+      margin-left: 4px;
+      transition: transform 0.3s ease;
+    }
+    
+    .dropdown:hover .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+    
     /* Enhanced Animations */
     .fade-in-up {
       animation: fadeInUp 0.6s ease-out forwards;
@@ -108,19 +155,48 @@
 </head>
 <body class="antialiased text-slate-800 bg-gradient-to-br from-[#eef2ff] to-[#f0fdf4]">
 
-  <!-- Sticky Header -->
+  <!-- Sticky Header with Dropdowns -->
   <header class="brand-bg shadow-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex justify-between items-center py-4">
-        <img src="https://raw.githubusercontent.com/Timbo63/tas-business-site/main/tas-logo.png" alt="TAS Business Solutions Logo" class="h-16 w-auto">
+        <a href="/"><img src="https://raw.githubusercontent.com/Timbo63/tas-business-site/main/tas-logo.png" alt="TAS Business Solutions Logo" class="h-16 w-auto"></a>
         
-        <!-- Desktop Navigation -->
+        <!-- Desktop Navigation with Dropdowns -->
         <nav class="desktop-menu">
           <ul class="flex space-x-8 text-white font-medium">
-            <li><a href="#home" class="hover:text-[#58FF75] transition-colors" onclick="scrollToSection('home')">Home</a></li>
-            <li><a href="#about" class="hover:text-[#58FF75] transition-colors" onclick="scrollToSection('about')">About</a></li>
-            <li><a href="#services" class="hover:text-[#58FF75] transition-colors" onclick="scrollToSection('services')">Services</a></li>
-            <li><a href="#contact" class="hover:text-[#58FF75] transition-colors" onclick="scrollToSection('contact')">Contact</a></li>
+            <li><a href="/" class="hover:text-[#58FF75] transition-colors">Home</a></li>
+            
+            <!-- Company Dropdown -->
+            <li class="dropdown">
+              <a href="#" class="hover:text-[#58FF75] transition-colors">
+                Company
+                <svg class="dropdown-arrow w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </a>
+              <div class="dropdown-content">
+                <a href="/about.html">About TAS</a>
+                <a href="/case-studies.html">Case Studies</a>
+                <a href="/contact.html">Contact</a>
+              </div>
+            </li>
+            
+            <!-- Solutions Dropdown -->
+            <li class="dropdown">
+              <a href="#" class="hover:text-[#58FF75] transition-colors">
+                Solutions
+                <svg class="dropdown-arrow w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </a>
+              <div class="dropdown-content">
+                <a href="/services.html">All Services</a>
+                <a href="/industries.html">Industries</a>
+                <a href="/pricing.html">Pricing</a>
+              </div>
+            </li>
+            
+            <li><a href="/contact.html" class="hover:text-[#58FF75] transition-colors">Contact</a></li>
           </ul>
         </nav>
         
@@ -135,10 +211,24 @@
       <!-- Mobile Navigation -->
       <nav id="mobileNav" class="hidden pb-4">
         <ul class="flex flex-col space-y-2 text-white font-medium">
-          <li><a href="#home" class="block py-2 hover:text-[#58FF75] transition-colors" onclick="scrollToSection('home')">Home</a></li>
-          <li><a href="#about" class="block py-2 hover:text-[#58FF75] transition-colors" onclick="scrollToSection('about')">About</a></li>
-          <li><a href="#services" class="block py-2 hover:text-[#58FF75] transition-colors" onclick="scrollToSection('services')">Services</a></li>
-          <li><a href="#contact" class="block py-2 hover:text-[#58FF75] transition-colors" onclick="scrollToSection('contact')">Contact</a></li>
+          <li><a href="/" class="block py-2 hover:text-[#58FF75] transition-colors">Home</a></li>
+          <li class="border-t border-white/20 pt-2">
+            <span class="block py-2 font-semibold">Company</span>
+            <ul class="ml-4 space-y-2">
+              <li><a href="/about.html" class="block py-1 hover:text-[#58FF75] transition-colors text-sm">About TAS</a></li>
+              <li><a href="/case-studies.html" class="block py-1 hover:text-[#58FF75] transition-colors text-sm">Case Studies</a></li>
+              <li><a href="/contact.html" class="block py-1 hover:text-[#58FF75] transition-colors text-sm">Contact</a></li>
+            </ul>
+          </li>
+          <li class="border-t border-white/20 pt-2">
+            <span class="block py-2 font-semibold">Solutions</span>
+            <ul class="ml-4 space-y-2">
+              <li><a href="/services.html" class="block py-1 hover:text-[#58FF75] transition-colors text-sm">All Services</a></li>
+              <li><a href="/industries.html" class="block py-1 hover:text-[#58FF75] transition-colors text-sm">Industries</a></li>
+              <li><a href="/pricing.html" class="block py-1 hover:text-[#58FF75] transition-colors text-sm">Pricing</a></li>
+            </ul>
+          </li>
+          <li class="border-t border-white/20 pt-2"><a href="/contact.html" class="block py-2 hover:text-[#58FF75] transition-colors">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -160,7 +250,7 @@
       <p class="mt-6 text-lg md:text-xl font-medium fade-in-up delay-1 max-w-3xl mx-auto px-4">
         Transform your business operations with tailored AI solutions designed for growing companies.
       </p>
-      <a href="#contact" class="mt-8 inline-block btn-primary text-white px-8 py-4 rounded-lg shadow-lg cursor-pointer fade-in-up delay-2 font-semibold" onclick="scrollToSection('contact')">
+      <a href="/contact.html" class="mt-8 inline-block btn-primary text-white px-8 py-4 rounded-lg shadow-lg fade-in-up delay-2 font-semibold">
         Get Started Today
       </a>
     </div>
@@ -399,17 +489,17 @@
         <div>
           <h4 class="font-semibold mb-4">Company</h4>
           <ul class="space-y-2 text-sm opacity-80">
-            <li><a href="#about" onclick="scrollToSection('about')" class="hover:opacity-100 cursor-pointer">About TAS</a></li>
-            <li><a href="#" class="hover:opacity-100">Case Studies</a></li>
-            <li><a href="#contact" onclick="scrollToSection('contact')" class="hover:opacity-100 cursor-pointer">Contact</a></li>
+            <li><a href="/about.html" class="hover:opacity-100">About TAS</a></li>
+            <li><a href="/case-studies.html" class="hover:opacity-100">Case Studies</a></li>
+            <li><a href="/contact.html" class="hover:opacity-100">Contact</a></li>
           </ul>
         </div>
         <div>
           <h4 class="font-semibold mb-4">Solutions</h4>
           <ul class="space-y-2 text-sm opacity-80">
-            <li><a href="#services" onclick="scrollToSection('services')" class="hover:opacity-100 cursor-pointer">All Services</a></li>
-            <li><a href="#" class="hover:opacity-100">Industries</a></li>
-            <li><a href="#" class="hover:opacity-100">Pricing</a></li>
+            <li><a href="/services.html" class="hover:opacity-100">All Services</a></li>
+            <li><a href="/industries.html" class="hover:opacity-100">Industries</a></li>
+            <li><a href="/pricing.html" class="hover:opacity-100">Pricing</a></li>
           </ul>
         </div>
         <div>
@@ -436,17 +526,6 @@
     function toggleMobileMenu() {
       const nav = document.getElementById('mobileNav');
       nav.classList.toggle('hidden');
-    }
-    
-    // Smooth scrolling function
-    function scrollToSection(sectionId) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
     }
   </script>
 </body>
