@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - TAS Business Solutions</title>
+    <meta name="description" content="AI solutions for small to mid-size companies. Predict, Automate, and Optimize your business with proven results.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #005477 0%, #0066aa 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .logo img {
+            height: 40px;
+            margin-right: 1rem;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+        }
+        .nav-item {
+            position: relative;
+            margin: 0 1rem;
+        }
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            border-radius: 5px;
+        }
+        .nav-link:hover {
+            color: #58FF75;
+            background-color: rgba(255,255,255,0.1);
+        }
+        .nav-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .nav-item:hover .nav-link i {
+            transform: rotate(180deg);
+        }
+        .dropdown-item {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #005477;
+        }
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #005477;
+            padding: 1rem 0;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        .mobile-nav-item {
+            padding: 0.5rem 2rem;
+        }
+        .mobile-nav-link {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+        }
+        .mobile-submenu {
+            padding-left: 2rem;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            color: #005477;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .services-grid {
+            padding: 4rem 0;
+            background: white;
+        }
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #58FF75;
+        }
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #005477 0%, #58FF75 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        .service-card h3 {
+            color: #005477;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+        .service-features li:before {
+            content: "✓";
+            color: #58FF75;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #005477;
+            margin-bottom: 1rem;
+        }
+        .pricing-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #005477;
+            margin-bottom: 3rem;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .pricing-card.featured {
+            border: 3px solid #58FF75;
+            transform: scale(1.05);
+        }
+        .pricing-card.featured::before {
+            content: "Most Popular";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #58FF75;
+            color: #005477;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .pricing-card h3 {
+            color: #005477;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .pricing-card .price {
+            font-size: 2.5rem;
+            color: #005477;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .pricing-card .price-period {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #005477 0%, #0066aa 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-button {
+            background: #58FF75;
+            color: #005477;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem;
+        }
+        .cta-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-section h4 {
+            color: #58FF75;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-section ul li a:hover {
+            color: #58FF75;
+        }
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            text-align: center;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/tasbusines/tas/main/logo.png" alt="TAS Business Solutions">
+                TAS Business Solutions
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Company <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown">
+                        <a href="/about.html" class="dropdown-item">About TAS</a>
+                        <a href="/case-studies.html" class="dropdown-item">Case Studies</a>
+                        <a href="/contact.html" class="dropdown-item">Contact</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Solutions <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown">
+                        <a href="/services.html" class="dropdown-item">All Services</a>
+                        <a href="/industries.html" class="dropdown-item">Industries</a>
+                        <a href="/pricing.html" class="dropdown-item">Pricing</a>
+                    </div>
+                </li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link">Home</a>
+                </div>
+                <div class="mobile-nav-item">
+                    <strong style="color: #58FF75;">Company</strong>
+                    <div class="mobile-submenu">
+                        <a href="/about.html" class="mobile-nav-link">About TAS</a>
+                        <a href="/case-studies.html" class="mobile-nav-link">Case Studies</a>
+                        <a href="/contact.html" class="mobile-nav-link">Contact</a>
+                    </div>
+                </div>
+                <div class="mobile-nav-item">
+                    <strong style="color: #58FF75;">Solutions</strong>
+                    <div class="mobile-submenu">
+                        <a href="/services.html" class="mobile-nav-link">All Services</a>
+                        <a href="/industries.html" class="mobile-nav-link">Industries</a>
+                        <a href="/pricing.html" class="mobile-nav-link">Pricing</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Three core AI solutions designed specifically for small to mid-size companies. Practical, affordable, and proven to deliver results.</p>
+        </div>
+    </section>
+
+    <section class="services-grid">
+        <div class="container">
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Predict</h3>
+                    <p>Turn your business data into actionable insights. Our AI analyzes patterns to forecast sales, optimize inventory, and predict customer behavior.</p>
+                    <ul class="service-features">
+                        <li>Sales forecasting and pipeline analysis</li>
+                        <li>Customer behavior prediction</li>
+                        <li>Market trend analysis</li>
+                        <li>Inventory optimization</li>
+                        <li>Risk assessment modeling</li>
+                    </ul>
+                    <div class="service-price">Starting at $5,000</div>
+                    <p><strong>Timeline:</strong> 4-6 weeks implementation</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automate</h3>
+                    <p>Eliminate repetitive tasks and streamline operations. From customer service to data entry, we'll build AI systems that work 24/7.</p>
+                    <ul class="service-features">
+                        <li>Customer service chatbots</li>
+                        <li>Automated data processing</li>
+                        <li>Email and communication automation</li>
+                        <li>Document processing and filing</li>
+                        <li>Workflow optimization</li>
+                    </ul>
+                    <div class="service-price">Starting at $8,000</div>
+                    <p><strong>Timeline:</strong> 6-8 weeks implementation</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Optimize</h3>
+                    <p>Make smarter decisions with real-time insights. Optimize pricing, resource allocation, and operational efficiency using advanced AI.</p>
+                    <ul class="service-features">
+                        <li>Dynamic pricing optimization</li>
+                        <li>Resource allocation planning</li>
+                        <li>Supply chain optimization</li>
+                        <li>Performance monitoring dashboards</li>
+                        <li>Cost reduction analysis</li>
+                    </ul>
+                    <div class="service-price">Starting at $10,000</div>
+                    <p><strong>Timeline:</strong> 8-12 weeks implementation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Service Packages</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$5,000</div>
+                    <div class="price-period">10-50 employees</div>
+                    <ul class="service-features">
+                        <li>One core AI solution</li>
+                        <li>Basic implementation</li>
+                        <li>4-week timeline</li>
+                        <li>Email support</li>
+                        <li>Basic training included</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Growth</h3>
+                    <div class="price">$12,000</div>
+                    <div class="price-period">50-150 employees</div>
+                    <ul class="service-features">
+                        <li>Two integrated AI solutions</li>
+                        <li>Advanced implementation</li>
+                        <li>6-8 week timeline</li>
+                        <li>Priority support</li>
+                        <li>Team training & documentation</li>
+                        <li>3 months post-launch support</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Scale</h3>
+                    <div class="price">$25,000</div>
+                    <div class="price-period">150-200 employees</div>
+                    <ul class="service-features">
+                        <li>Full AI suite integration</li>
+                        <li>Custom solution development</li>
+                        <li>8-12 week timeline</li>
+                        <li>Dedicated support manager</li>
+                        <li>Comprehensive training program</li>
+                        <li>6 months ongoing optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.2rem;">Let's discuss which AI solution is right for your company. Free 30-minute consultation to get started.</p>
+            <a href="/contact.html" class="cta-button">Schedule Free Consultation</a>
+            <a href="tel:4055324525" class="cta-button">Call (405) 532-4525</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About TAS</a></li>
+                        <li><a href="/case-studies.html">Case Studies</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="/services.html">All Services</a></li>
+                        <li><a href="/industries.html">Industries</a></li>
+                        <li><a href="/pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:sharptimal@outlook.com">sharptimal@outlook.com</a></li>
+                        <li><a href="tel:4055324525">(405) 532-4525</a></li>
+                        <li>Norman, OK</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TAS Business Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!toggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
