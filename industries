@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industries - TAS Business Solutions</title>
+    <meta name="description" content="AI solutions tailored for healthcare, manufacturing, retail, professional services, and technology companies.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #005477 0%, #0066aa 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .logo img {
+            height: 40px;
+            margin-right: 1rem;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+        }
+        .nav-item {
+            position: relative;
+            margin: 0 1rem;
+        }
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            border-radius: 5px;
+        }
+        .nav-link:hover {
+            color: #58FF75;
+            background-color: rgba(255,255,255,0.1);
+        }
+        .nav-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .nav-item:hover .nav-link i {
+            transform: rotate(180deg);
+        }
+        .dropdown-item {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #005477;
+        }
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #005477;
+            padding: 1rem 0;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        .mobile-nav-item {
+            padding: 0.5rem 2rem;
+        }
+        .mobile-nav-link {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+        }
+        .mobile-submenu {
+            padding-left: 2rem;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            color: #005477;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .industries-grid {
+            padding: 4rem 0;
+            background: white;
+        }
+        .industries-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        .industry-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .industry-card:hover {
+            transform: translateY(-5px);
+            border-color: #58FF75;
+        }
+        .industry-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #005477 0%, #58FF75 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+        .industry-card h3 {
+            color: #005477;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .industry-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .industry-solutions {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        .industry-solutions li {
+            padding: 0.5rem 0;
+            color: #666;
+            display: flex;
+            align-items: flex-start;
+        }
+        .industry-solutions li:before {
+            content: "→";
+            color: #58FF75;
+            font-weight: bold;
+            margin-right: 0.8rem;
+            margin-top: 0.1rem;
+        }
+        .case-study-highlight {
+            background: #f8f9fa;
+            border-left: 4px solid #58FF75;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        .case-study-highlight strong {
+            color: #005477;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #005477 0%, #0066aa 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-button {
+            background: #58FF75;
+            color: #005477;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem;
+        }
+        .cta-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-section h4 {
+            color: #58FF75;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-section ul li a:hover {
+            color: #58FF75;
+        }
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            text-align: center;
+            color: #ccc;
+        }
+        @media (max-width: 768px) {
+            .industries-container {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/tasbusines/tas/main/logo.png" alt="TAS Business Solutions">
+                TAS Business Solutions
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Company <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown">
+                        <a href="/about.html" class="dropdown-item">About TAS</a>
+                        <a href="/case-studies.html" class="dropdown-item">Case Studies</a>
+                        <a href="/contact.html" class="dropdown-item">Contact</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Solutions <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown">
+                        <a href="/services.html" class="dropdown-item">All Services</a>
+                        <a href="/industries.html" class="dropdown-item">Industries</a>
+                        <a href="/pricing.html" class="dropdown-item">Pricing</a>
+                    </div>
+                </li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link">Home</a>
+                </div>
+                <div class="mobile-nav-item">
+                    <strong style="color: #58FF75;">Company</strong>
+                    <div class="mobile-submenu">
+                        <a href="/about.html" class="mobile-nav-link">About TAS</a>
+                        <a href="/case-studies.html" class="mobile-nav-link">Case Studies</a>
+                        <a href="/contact.html" class="mobile-nav-link">Contact</a>
+                    </div>
+                </div>
+                <div class="mobile-nav-item">
+                    <strong style="color: #58FF75;">Solutions</strong>
+                    <div class="mobile-submenu">
+                        <a href="/services.html" class="mobile-nav-link">All Services</a>
+                        <a href="/industries.html" class="mobile-nav-link">Industries</a>
+                        <a href="/pricing.html" class="mobile-nav-link">Pricing</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Industries We Serve</h1>
+            <p>AI solutions tailored to your industry's unique challenges. From healthcare to manufacturing, we understand what works.</p>
+        </div>
+    </section>
+
+    <section class="industries-grid">
+        <div class="container">
+            <div class="industries-container">
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Healthcare & Life Sciences</h3>
+                    <p>Streamline patient care, optimize operations, and accelerate research with healthcare-focused AI solutions. Our expertise in medical device commercialization gives us unique insight into this industry.</p>
+                    <ul class="industry-solutions">
+                        <li>Patient flow optimization and scheduling</li>
+                        <li>Clinical decision support systems</li>
+                        <li>Medical device market analysis</li>
+                        <li>Regulatory compliance automation</li>
+                        <li>Supply chain optimization for medical devices</li>
+                    </ul>
+                    <div class="case-study-highlight">
+                        <strong>Real Result:</strong> Helped medical device company achieve 33% year-over-year international growth through AI-powered market analysis and expansion strategy.
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Manufacturing</h3>
+                    <p>Reduce waste, improve quality, and optimize production schedules with AI-driven manufacturing solutions designed for lean operations.</p>
+                    <ul class="industry-solutions">
+                        <li>Predictive maintenance and equipment monitoring</li>
+                        <li>Quality control and defect detection</li>
+                        <li>Production planning and scheduling</li>
+                        <li>Supply chain demand forecasting</li>
+                        <li>Inventory optimization and just-in-time delivery</li>
+                    </ul>
+                    <div class="case-study-highlight">
+                        <strong>Typical Impact:</strong> 15-25% reduction in downtime and 10-20% improvement in production efficiency through predictive analytics.
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Retail & E-commerce</h3>
+                    <p>Enhance customer experience, optimize pricing, and improve inventory management with retail-focused AI solutions that drive sales.</p>
+                    <ul class="industry-solutions">
+                        <li>Customer behavior analysis and personalization</li>
+                        <li>Dynamic pricing optimization</li>
+                        <li>Inventory demand forecasting</li>
+                        <li>Chatbots for customer service</li>
+                        <li>Automated product recommendations</li>
+                    </ul>
+                    <div class="case-study-highlight">
+                        <strong>Proven Results:</strong> Generated $1.4M in additional revenue for client through AI-powered sales optimization and customer insights.
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Professional Services</h3>
+                    <p>Automate administrative tasks, improve client insights, and optimize resource allocation for consulting, legal, and accounting firms.</p>
+                    <ul class="industry-solutions">
+                        <li>Document processing and contract analysis</li>
+                        <li>Client communication automation</li>
+                        <li>Project scheduling and resource planning</li>
+                        <li>Time tracking and billing optimization</li>
+                        <li>Client satisfaction prediction and retention</li>
+                    </ul>
+                    <div class="case-study-highlight">
+                        <strong>Common Outcome:</strong> 30-40% reduction in administrative time, allowing professionals to focus on high-value client work.
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Technology & Software</h3>
+                    <p>Accelerate development, improve user experience, and optimize operations with AI solutions built by technical professionals who understand your challenges.</p>
+                    <ul class="industry-solutions">
+                        <li>Automated testing and quality assurance</li>
+                        <li>User behavior analytics and optimization</li>
+                        <li>Predictive support and maintenance</li>
+                        <li>Customer churn prediction and prevention</li>
+                        <li>Resource allocation and capacity planning</li>
+                    </ul>
+                    <div class="case-study-highlight">
+                        <strong>Our Approach:</strong> As a tech company ourselves, we understand rapid iteration and the need for solutions that scale with your growth.
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Financial Services</h3>
+                    <p>Improve risk assessment, enhance customer service, and automate compliance with AI solutions designed for financial institutions.</p>
+                    <ul class="industry-solutions">
+                        <li>Credit risk assessment and fraud detection</li>
+                        <li>Automated compliance monitoring</li>
+                        <li>Customer service chatbots and support</li>
+                        <li>Investment portfolio optimization</li>
+                        <li>Claims processing automation</li>
+                    </ul>
+                    <div class="case-study-highlight">
+                        <strong>Focus Area:</strong> Helping smaller financial firms compete with enterprise-level AI capabilities at an affordable scale.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Industry?</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.2rem;">Let's discuss how AI can address your industry's specific challenges. Free consultation to explore possibilities.</p>
+            <a href="/contact.html" class="cta-button">Schedule Industry Consultation</a>
+            <a href="tel:4055324525" class="cta-button">Call (405) 532-4525</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About TAS</a></li>
+                        <li><a href="/case-studies.html">Case Studies</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="/services.html">All Services</a></li>
+                        <li><a href="/industries.html">Industries</a></li>
+                        <li><a href="/pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:sharptimal@outlook.com">sharptimal@outlook.com</a></li>
+                        <li><a href="tel:4055324525">(405) 532-4525</a></li>
+                        <li>Norman, OK</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TAS Business Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!toggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
